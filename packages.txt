@@ -1,0 +1,11 @@
+*windowscommunicationsapps*
+*BingWeather*
+*DesktopAppInstaller*
+*Getstarted*
+*Windows.Photos*
+*WindowsCamera*
+*WindowsFeedbackHub*
+*WindowsStore*
+*XboxApp*
+*XboxIdentityProvider*
+*ZuneMusic* 
