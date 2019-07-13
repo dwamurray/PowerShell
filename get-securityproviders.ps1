@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function querywork {
 
 param($server)
@@ -305,4 +304,3 @@ END {}
 #get-content servers.txt | .\get-securityproviders.ps1 | export-csv results.csv -notype
 
 'david-lap' | get-securityproviders | export-csv results.csv -notype
->>>>>>> ef83e1302393636d7a120c32a6de3a98ea898944
