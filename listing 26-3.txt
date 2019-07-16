@@ -1,0 +1,35 @@
+﻿        <View>
+            <Name>MyCustomInfoTable</Name> #A
+            <ViewSelectedBy>
+                <TypeName>Custom.Info</TypeName> #B
+            </ViewSelectedBy>
+            <TableControl>
+                <TableHeaders>
+                    <TableColumnHeader>               #C
+                        <Label>OS Ver</Label>         #C
+                        <Width>9</Width>              #C
+                    </TableColumnHeader>              #C
+                    <TableColumnHeader>               #C
+                        <Label>SP Ver</Label>         #C
+                        <Width>9</Width>              #C
+                        <Alignment>Right</Alignment>  #C
+                    </TableColumnHeader>              #C
+                  <TableColumnHeader/>              #C
+                </TableHeaders>                       #C
+              <TableRowEntries>
+                  <TableRowEntry>
+                      <TableColumnItems>
+                          <TableColumnItem>
+                              <PropertyName>OSVersion</PropertyName>
+                          </TableColumnItem>
+                          <TableColumnItem>
+                              <PropertyName>SPVersion</PropertyName>
+                          </TableColumnItem>
+                          <TableColumnItem>
+                              <PropertyName>ComputerName</PropertyName>
+                          </TableColumnItem>
+                      </TableColumnItems>
+                  </TableRowEntry>
+               </TableRowEntries>
+            </TableControl>
+        </View>

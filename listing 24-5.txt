@@ -1,0 +1,26 @@
+﻿function Get-SystemInfo {
+  [CmdletBinding()]
+  param(
+    [Parameter(Mandatory=$True,
+               ValueFromPipeline=$True,
+               ValueFromPipelineByPropertyName=$True)]
+    [Alias('hostname')]    #A
+    [string[]]$computerName
+  )
+  BEGIN {}
+  PROCESS {
+    foreach ($computer in $computername) {
+      $os = Get-WmiObject –Class Win32_OperatingSystem –comp $computer
+      $cs = Get-WmiObject –Class Win32_ComputerSystem –comp $computer
+
+      $props = @{'OSVersion'=$os.version;
+                 'Model'=$cs.model;
+                 'Manufacturer'=$cs.manufacturer;
+                 'ComputerName'=$os.__SERVER;
+                 'OSArchitecture'=$os.osarchitecture}
+      $obj = New-Object –TypeName PSObject –Property $props
+      Write-Output $obj
+    }
+  }
+  END {}
+}

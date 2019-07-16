@@ -1,0 +1,16 @@
+﻿$os = Get-WmiObject –class Win32_OperatingSystem –comp localhost
+$cs = Get-WmiObject –class Win32_ComputerSystem –comp localhost
+$bios = Get-WmiObject –class Win32_BIOS –comp localhost
+$proc = Get-WmiObject –class Win32_Processor –comp localhost | 
+Select –first 1
+
+$obj = 1 | Select-Object ComputerName,OSVersion,OSArchitecture,
+           ProcArchitecture,Model,Manufacturer,BIOSSerial
+$obj.ComputerName = $os.__SERVER
+$obj.OSVersion = $os.version
+$obj.OSArchitecture = $os.osarchitecture
+$obj.ProcArchitecture = $proc.addresswidth
+$obj.BIOSSerial = $bios.serialnumber
+$obj.Model = $cs.model
+$obj.Manufacturer = $cs.manufacturer
+Write-Output $obj

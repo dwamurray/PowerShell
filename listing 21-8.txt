@@ -1,0 +1,29 @@
+﻿$os = Get-WmiObject -class Win32_OperatingSystem
+$users = Get-WmiObject -class Win32_UserAccount
+$disks = Get-WmiObject -class Win32_LogicalDisk -filter "drivetype=3"
+
+$diskObjs = @()    #1
+foreach ($disk in $disks) {     #2
+    $props = @{'Drive'=$disk.DeviceID;      #3
+               'Space'=$disk.Size;          #3
+               'FreeSpace'=$disk.FreeSpace} #3
+    $diskObj = New-Object -TypeName PSObject -Property $props   #4
+    $diskObjs += $diskObj #5
+}
+
+$userObjs = @()  #6
+foreach ($user in $users) {
+    $props = @{'UserName'=$user.Name;
+               'UserSID'=$user.SID}
+    $userObj = New-Object -TypeName PSObject -Property $props
+    $userObjs += $userObj
+}
+
+$props = @{'ComputerName'=$os.__SERVER;
+           'OSVersion'=$os.version;
+           'SPVersion'=$os.servicepackmajorversion;
+           'Disks'=$diskObjs;   #7
+           'Users'=$userObjs;
+          }   #7
+$obj = New-Object -TypeName PSObject -Property $props
+Write-Output $obj  #8

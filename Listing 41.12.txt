@@ -1,0 +1,12 @@
+Configuration MyConfig {
+  Node WWW1 {
+    Website {
+      Name = 'Sample Website'
+      PhysicalPath = 'C:\Webfiles\Sample'
+      Ensure = 'Present'
+      State = 'Started'
+      Protocol = 'http'
+      ApplicationPool = 'MyAppPool'
+    }
+  }
+}

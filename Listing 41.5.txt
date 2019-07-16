@@ -1,0 +1,78 @@
+function Create-PSWSEndpoint
+{
+    param (
+        
+        # Unique Name of the IIS Site
+        [parameter(mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String] $site,
+        
+        # Physical path for the IIS Endpoint on the machine (under inetpub/wwwroot)
+        [parameter(mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String] $path,
+        
+        # Web.config file
+        [parameter(mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String] $cfgfile,
+        
+        # Port # for the IIS Endpoint
+        [parameter(mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [Int] $port,
+        
+        # IIS Application Name for the Site
+        [parameter(mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String] $app,
+        
+        # IIS App Pool Identity Type - must be one of LocalService, LocalSystem, NetworkService, ApplicationPoolIdentity		
+        [ValidateSet('LocalService', 'LocalSystem', 'NetworkService', 'ApplicationPoolIdentity')]		
+        [String] $applicationPoolIdentityType,
+        
+        # WCF Service SVC file
+        [parameter(mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String] $svc,
+        
+        # PSWS Specific MOF Schema File
+        [parameter(mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [String] $mof,
+        
+        # Global.asax file [Optional]
+        [ValidateNotNullOrEmpty()]
+        [String] $asax,        
+        
+        # PSWS Specific Dispatch Mapping File [Optional]
+        [ValidateNotNullOrEmpty()]		
+        [String] $dispatch,
+        
+        # PSWS Test Specific RBAC Config File [Optional when using the Pass-Through Plugin]
+        [ValidateNotNullOrEmpty()]
+        [String] $rbac,
+        
+        # Any dependent binaries that need to be deployed to the IIS endpoint, in the bin folder
+        [ValidateNotNullOrEmpty()]
+        [String[]] $dependentBinaries,
+        
+        # Any dependent PowerShell Scipts/Modules that need to be deployed to the IIS endpoint application root
+        [ValidateNotNullOrEmpty()]
+        [String[]] $psFiles,
+        
+        # True to remove all files for the site at first, false otherwise
+        [Boolean]$removeSiteFiles = $false)
+    
+    $script:wshShell = New-Object -ComObject wscript.shell
+    $script:appCmd = "$env:windir\system32\inetsrv\appcmd.exe"
+    $script:SrvMgr = $null
+    $script:netsh = "$env:windir\system32\netsh.exe"
+    
+    Log ("Setting up test site at http://$env:COMPUTERNAME.$env:USERDNSDOMAIN:$port")
+    ParseCommandLineAndSetupResouce -site $site -path $path -cfgfile $cfgfile -port $port -app $app -applicationPoolIdentityType $applicationPoolIdentityType -svc $svc -mof $mof -asax $asax -dispatch $dispatch -rbac $rbac -dependentBinaries $dependentBinaries -psFiles $psFiles -removeSiteFiles $removeSiteFiles
+    
+    CreateFirewallRule $port
+    
+    PerformActionOnAllSites start	
+}

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PowerShellMetadata xmlns="http://schemas.microsoft.com/cmdlets-over-objects/2009/11">
+  <Class ClassName="root\cimv2/Win32_LogicalDisk">   
+    <Version>1.0</Version>
+    <DefaultNoun>LogicalDisk</DefaultNoun>
+
+    <InstanceCmdlets>
+      <GetCmdletParameters DefaultCmdletParameterSet="ByName">
+        <QueryableProperties>
+
+          <Property PropertyName="Name">       
+            <Type PSType = "System.String"/>
+            <RegularQuery > 
+              <CmdletParameterMetadata PSName="Name" ValueFromPipelineByPropertyName="true" CmdletParameterSets="ByName" />
+            </RegularQuery>
+          </Property>
+
+          <Property PropertyName="DriveType">  
+            <Type PSType = "DJRPID.Disk.DriveType"/>
+            <RegularQuery > 
+              <CmdletParameterMetadata PSName="DriveType" CmdletParameterSets="ByType" />
+            </RegularQuery>
+          </Property>
+
+          <Property PropertyName="FreeSpace">  
+            <Type PSType="System.UInt64" />
+            <MaxValueQuery>
+              <CmdletParameterMetadata PSName="MaxFreeSize" CmdletParameterSets="BySize" />
+            </MaxValueQuery>
+            <MinValueQuery>
+              <CmdletParameterMetadata PSName="MinFreeSize" CmdletParameterSets="BySize" />
+            </MinValueQuery>
+          </Property>
+
+          </QueryableProperties>        
+      </GetCmdletParameters>
+
+      <Cmdlet>
+        <CmdletMetadata Verb="Invoke" Noun="LogicalDiskChkdsk" ConfirmImpact="Medium"/>
+        <Method MethodName="Chkdsk">           
+          <ReturnValue>
+            <Type PSType="System.UInt32"/>
+            <CmdletOutputMetadata>
+            </CmdletOutputMetadata>
+          </ReturnValue>
+          
+          <Parameters>                         
+            <Parameter ParameterName="FixErrors">
+              <Type PSType="Boolean" />
+              <CmdletParameterMetadata PSName="FixErrors" />
+            </Parameter>
+
+            <Parameter ParameterName="ForceDismount">
+              <Type PSType="Boolean" />
+              <CmdletParameterMetadata PSName="ForceDismount" />
+            </Parameter>
+
+            <Parameter ParameterName="OkToRunAtBootUp">
+              <Type PSType="Boolean" />
+              <CmdletParameterMetadata PSName="OkToRunAtBootUp" />
+            </Parameter>
+
+            <Parameter ParameterName="RecoverBadSectors">
+              <Type PSType="Boolean" />
+              <CmdletParameterMetadata PSName="RecoverBadSectors" />
+            </Parameter>
+
+            <Parameter ParameterName="SkipFolderCycle">
+              <Type PSType="Boolean" />
+              <CmdletParameterMetadata PSName="SkipFolderCycle" />
+            </Parameter>
+
+            <Parameter ParameterName="VigorousIndexCheck">
+              <Type PSType="Boolean" />
+              <CmdletParameterMetadata PSName="VigorousIndexCheck" />
+            </Parameter>
+
+          </Parameters>                          
+        </Method>                
+        <GetCmdletParameters DefaultCmdletParameterSet="ByName">
+        <QueryableProperties>
+
+          <Property PropertyName="Name">
+            <Type PSType = "System.String"/>
+            <RegularQuery > 
+              <CmdletParameterMetadata PSName="Name" ValueFromPipelineByPropertyName="true" CmdletParameterSets="ByName" />
+            </RegularQuery>
+          </Property>
+               
+        </QueryableProperties>        
+      </GetCmdletParameters>
+      </Cmdlet>
+    </InstanceCmdlets>
+  </Class>
+  <Enums>                         
+    <Enum EnumName="DJRPID.Disk.DriveType" UnderlyingType="System.UInt32">
+      <Value Name="RemovableDisk" Value="2" />
+      <Value Name="HardDisk" Value="3" />
+      <Value Name="NetworkDrive" Value="4" />
+      <Value Name="CD" Value="5" />
+      <Value Name="RAMDisk" Value="6" />
+    </Enum>
+  </Enums>
+</PowerShellMetadata> 

@@ -1,0 +1,2 @@
+﻿$test = Read-Host "Enter a number"
+Write-Host $tset

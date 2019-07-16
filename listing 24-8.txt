@@ -1,0 +1,29 @@
+﻿function Get-SystemInfo {
+  [CmdletBinding()]
+  param(
+    [Parameter(Mandatory=$True,
+               ValueFromPipeline=$True,
+               ValueFromPipelineByPropertyName=$True)]
+    [string[]]$computerName
+  )
+  BEGIN {}
+  PROCESS {
+    foreach ($computer in $computername) {
+      Write-Host "Connecting to $computer"   #A
+      $os = Get-WmiObject –Class Win32_OperatingSystem –comp $computer
+      $cs = Get-WmiObject –Class Win32_ComputerSystem –comp $computer
+
+      Write-Host "Connection done, building object"
+      $props = @{'OSVersion'=$os.version;
+                 'Model'=$cs.model;
+                 'Manufacturer'=$cs.manufacturer;
+                 'ComputerName'=$os.__SERVER;
+                 'OSArchitecture'=$os.osarchitecture}
+      $obj = New-Object –TypeName PSObject –Property $props
+      
+      Write-Host "Object done, OS ver is $($os.version)"
+      Write-Output $obj
+    }
+  }
+  END {}
+}

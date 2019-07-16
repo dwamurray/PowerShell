@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Types>
+    <Type>
+        <Name>OurTypes.Computer</Name>
+        <Members>
+            <AliasProperty>
+                <Name>Host</Name>
+                <ReferencedMemberName>ComputerName</ReferencedMemberName>
+            </AliasProperty>
+            <ScriptProperty>
+                <Name>MfgModel</Name>
+                <GetScriptBlock>
+                  $this.Model + ' ' + $this.Manufacturer
+                </GetScriptBlock>
+            </ScriptProperty>
+            <ScriptMethod>
+                <Name>IsReachable</Name>
+                <Script>
+                  Test-Connection $this.computername -quiet
+                </Script>
+            </ScriptMethod>
+            <MemberSet>
+                <Name>PSStandardMembers</Name>
+                <Members>
+                    <PropertySet>
+                        <Name>DefaultDisplayPropertySet</Name>
+                        <ReferencedProperties>
+                          <Name>ComputerName</Name>
+                          <Name>MfgModel</Name>
+                        </ReferencedProperties>
+                    </PropertySet>
+                </Members>
+            </MemberSet>
+        </Members>
+    </Type>
+</Types>

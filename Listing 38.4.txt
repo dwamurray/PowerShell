@@ -1,0 +1,17 @@
+<#
+ This must be run in the ISE or in a PowerShell console session started
+ with –STA
+#>
+
+Import-Module ShowUI
+
+New-Canvas -ControlName "Newest 100" -Height 100 -Width 300 -children {
+ New-Label -content "log to display" -left 45 -top 10
+ New-ComboBox -IsEditable:$false -SelectedIndex 0  -Top 10 -left 130 -Name comboBoxLogName -ItemsSource @(Get-eventlog -list | 
+Select -ExpandProperty Log)
+ New-Button "Display" -isDefault -Top 50 -left 50  -On_Click {
+     Get-Eventlog -logname $($comboBoxLogName.SelectedItem) -Newest 100 | 
+     Out-GridView -Title "Newest 100"
+  } 
+ New-Button "Close" -Top 50 -left 175 -On_Click { Close-Control}
+ } -Show

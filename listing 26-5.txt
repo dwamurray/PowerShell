@@ -1,0 +1,15 @@
+﻿<View>
+            <Name>MyCustomInfoWide</Name> #A
+            <ViewSelectedBy>
+                <TypeName>Custom.Info</TypeName> #B
+            </ViewSelectedBy>
+            <WideControl>
+                <WideEntries>
+                    <WideEntry>
+                        <WideItem>
+                            <PropertyName>ComputerName</PropertyName> #C
+                        </WideItem>
+                    </WideEntry>
+                </WideEntries>
+            </WideControl>
+        </View>

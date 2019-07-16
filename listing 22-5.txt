@@ -1,0 +1,11 @@
+﻿function Do-That {
+    Write-Host "Inside Do-That $var is '$var'"
+    Set-Variable -name var -value 3 -scope global
+    Write-Host "Now, inside Do-That $var is '$var'"
+}
+
+Write-Host "Inside Test2 $var is '$var'"
+Set-Variable -name var -value 2 -scope global
+Write-Host "Now, inside Test2 $var is '$var'"
+Do-That
+Write-Host "Back inside Test2 $var is '$var'"

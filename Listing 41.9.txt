@@ -1,0 +1,12 @@
+[version("1.0.0"), FriendlyName("Website")] 
+class Demo_IISWebsite : MSFT_BaseResourceConfiguration
+{
+  [Key] string Name;
+  [write] string PhysicalPath;
+  [write,ValueMap{"Present", "Absent"},Values{"Present", "Absent"}] string Ensure;
+  [write,ValueMap{"Started","Stopped"},Values{"Started", "Stopped"}] string State;
+  [write,ValueMap{"http", "https"},Values{"http", "https"}] string Protocol[];
+  [write] string BindingInfo[];
+  [write] string ApplicationPool;
+  [read] string ID;
+};

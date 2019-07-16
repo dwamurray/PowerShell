@@ -1,0 +1,23 @@
+﻿        <View>
+            <Name>MyCustomInfoList</Name>  #A
+            <ViewSelectedBy>
+                <TypeName>Custom.Info</TypeName>  #C
+            </ViewSelectedBy>
+             <ListControl>
+                <ListEntries>
+                    <ListEntry>
+                        <ListItems>
+                            <ListItem>
+                                <PropertyName>OSVersion</PropertyName>
+                            </ListItem>
+                            <ListItem>
+                                <PropertyName>SPVersion</PropertyName>
+                            </ListItem>
+                            <ListItem>
+                                <PropertyName>Mfgr</PropertyName>
+                            </ListItem>
+                         </ListItems>
+                    </ListEntry>
+                </ListEntries>
+            </ListControl>
+        </View>

@@ -1,0 +1,27 @@
+Add-Type -AssemblyName PresentationFramework
+
+[xml]$xaml = Get-Content -Path c:\scripts\sample-wpf.xml
+
+$reader = New-Object system.xml.xmlnodereader $xaml
+
+$form = [windows.markup.xamlreader]::Load($reader)
+
+#add events to buttons
+$btnDisplay = $form.findname("Display")
+$btnDisplay.Add_Click({ Get-Eventlog -LogName $($combo.Text) -Newest 100 | 
+Out-GridView -Title "Recent Entries"})
+
+$btnClose = $form.FindName("Close")
+$btnClose.Add_Click( {$form.close()})
+
+#populate the combo box
+$combo = $form.FindName("comboBoxLogName")
+get-eventlog -List | foreach {
+ $combo.items.Add($_.logDisplayname) | Out-Null
+}
+
+#select the first item
+$combo.SelectedIndex=0
+
+#display the form
+$form.showDialog() | Out-Null
