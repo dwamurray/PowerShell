@@ -39,7 +39,7 @@ function Get-DiskInfo {
                    Danger=$danger}
         Write-Debug "Created hash table  will create object next"   #A
         
-        $obj = New-Object –TypeName PSObject –Property $props
+        $obj = New-Object â€“TypeName PSObject â€“Property $props
         Write-Output $obj
       }
     }
