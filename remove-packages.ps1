@@ -1,4 +1,4 @@
-﻿$packages = get-content packages.txt
+$packages = get-content packages.txt
 
 foreach (
 $package in $packages
