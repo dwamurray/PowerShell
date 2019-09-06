@@ -1,4 +1,4 @@
-﻿workflow Test-Workflow {
+workflow Test-Workflow {
     
     $a = 1
     $a
