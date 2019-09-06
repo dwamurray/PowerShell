@@ -1,4 +1,4 @@
-﻿Workflow DemoSequence {
+Workflow DemoSequence {
 
 write-verbose -message ("{0} starting" -f (Get-Date).TimeofDay)
 $a=10 
