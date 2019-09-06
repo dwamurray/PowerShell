@@ -1,5 +1,3 @@
-﻿#Requires -version 3.0
-
 whoami /groups /fo list | Select -Skip 4 | Where {$_} |
  foreach-object -Begin {$i=0; $hash=@{}} -Process {
    if ($i -ge 4) {
