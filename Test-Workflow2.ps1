@@ -1,4 +1,4 @@
-﻿workflow Test-Workflow {
+workflow Test-Workflow {
     
     $obj = New-Object -TypeName PSObject
     $obj | Add-Member -MemberType NoteProperty `
