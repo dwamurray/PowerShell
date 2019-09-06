@@ -1,5 +1,3 @@
-﻿#requires -version 3.0
-
 Function Get-NBTName {
 
 $data=nbtstat /n | Select-String "<" | where {$_ -notmatch "__MSBROWSE__"}
