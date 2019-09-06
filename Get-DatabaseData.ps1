@@ -1,4 +1,4 @@
-﻿function Get-DatabaseData {
+function Get-DatabaseData {
  [CmdletBinding()]
  param (
   [string]$connectionString,
