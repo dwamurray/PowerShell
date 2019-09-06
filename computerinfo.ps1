@@ -1,4 +1,4 @@
-﻿param ($computername)
+param ($computername)
 Write-Host '------- COMPUTER INFORMATION -------'
 Write-Host "Computer Name: $computername"
 
