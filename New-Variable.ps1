@@ -1,4 +1,4 @@
-﻿Param ([string]$computername=$env:computername)
+Param ([string]$computername=$env:computername)
 
 New-Variable -name ADS_UF_DONT_EXPIRE_PASSWD -value 0x10000 -Option Constant
 
