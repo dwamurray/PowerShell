@@ -1,4 +1,4 @@
-﻿function Get-Info {
+function Get-Info {
     param([string]$computername='localhost')
     $os = Get-WmiObject -class Win32_OperatingSystem -comp $computername
     $cs = Get-WmiObject -class Win32_ComputerSystem -comp $computername
