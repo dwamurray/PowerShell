@@ -1,4 +1,4 @@
-﻿#Create and populating *-Applications.csv file for server
+#Create and populating *-Applications.csv file for server
 $LMkeys = "Software\Microsoft\Windows\CurrentVersion\Uninstall","SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall"
 $LMtype = [Microsoft.Win32.RegistryHive]::LocalMachine
 $LMRegKey = [Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey($LMtype,$server)
