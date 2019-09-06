@@ -1,4 +1,4 @@
-﻿param([string]$computername)
+param([string]$computername)
 
 Update-TypeData -AppendPath C:\OurTypes.ps1xml -EA SilentlyContinue
 
