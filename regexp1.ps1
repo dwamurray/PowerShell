@@ -1,4 +1,4 @@
-﻿'abcd', 'Abcd', 'abc1', '123a', '!>@#' |
+'abcd', 'Abcd', 'abc1', '123a', '!>@#' |
 foreach {
  switch -regex -case ($_){
   "[a-z]{4}" {"[a-z]{4} matched $_"} 
