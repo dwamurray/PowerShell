@@ -1,4 +1,4 @@
-﻿function Get-DiskInfo {
+function Get-DiskInfo {
   [CmdletBinding()]
   param(
     [Parameter(Mandatory=$True,
