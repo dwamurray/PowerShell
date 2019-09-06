@@ -1,4 +1,4 @@
-﻿$module="FileSystem"
+$module="FileSystem"
  Import-Module $module
  
  Get-Command -Module $module -CommandType Function | 
