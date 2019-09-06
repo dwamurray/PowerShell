@@ -2,15 +2,15 @@ $i = 0
 Do {                                 #A
   $i
   $i++
-} While ($i –lt 10)
+} While ($i â€“lt 10)
 $i = 0
 Do {                                 #B 
   $i
   $i++
-} Until ($i –eq 10)
+} Until ($i â€“eq 10)
 $i = 0                     
                                      #C
-While ($i –lt 10) {
+While ($i â€“lt 10) {
   $i
   $i++
 }
