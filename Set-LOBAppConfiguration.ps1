@@ -1,4 +1,4 @@
-﻿workflow Set-LOBAppConfiguration {
+workflow Set-LOBAppConfiguration {
 
     parallel {
 
