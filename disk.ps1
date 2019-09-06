@@ -1,4 +1,4 @@
-﻿Param(                      #A
+Param(                      #A
 	[string]$computerName, #A
 	[int]$driveType = 3    #A
 )
