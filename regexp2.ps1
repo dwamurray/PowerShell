@@ -1,4 +1,4 @@
-﻿$Computername="LON-DC01"
+$Computername="LON-DC01"
 
 Switch -regex ($Computername) {
 
