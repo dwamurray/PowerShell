@@ -3,7 +3,7 @@ Param(
 )
 BEGIN {}
 PROCESS {
-  If ((100 * ($_.FreeSpace / $_.Size) –lt $FreeSpace)) {
+  If ((100 * ($_.FreeSpace / $_.Size) -lt $FreeSpace)) {
     Write-Output $_   #A
   }
 }

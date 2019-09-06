@@ -25,7 +25,7 @@ function Get-TargetResource
 
         $getTargetResourceResult = $null;
 
-        <# YOUR CODE HERE – assume $Website is a valid object #>
+        <# YOUR CODE HERE - assume $Website is a valid object #>
         $getTargetResourceResult = @{
                 Name = $Website.Name; 
                 Ensure = $ensureResult;

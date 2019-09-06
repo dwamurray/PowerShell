@@ -10,8 +10,8 @@ function Get-SystemInfo {
   PROCESS {
     foreach ($computer in $computername) {
       Write-Verbose "Connecting to $computer"
-      $os = Get-WmiObject –class Win32_OperatingSystem –comp $computer
-      $cs = Get-WmiObject –class Win32_ComputerSystem –comp $computer
+      $os = Get-WmiObject -class Win32_OperatingSystem -comp $computer
+      $cs = Get-WmiObject -class Win32_ComputerSystem -comp $computer
 
       Write-Verbose "Connection done, building object"
       $props = @{'OSVersion'=$os.version;
@@ -19,7 +19,7 @@ function Get-SystemInfo {
                  'Manufacturer'=$cs.manufacturer;
                  'ComputerName'=$os.__SERVER;
                  'OSArchitecture'=$os.osarchitecture}
-      $obj = New-Object –TypeName PSObject –Property $props
+      $obj = New-Object -TypeName PSObject -Property $props
       
       Write-Verbose "Object done, OS ver is $($os.version)"
       Write-Output $obj

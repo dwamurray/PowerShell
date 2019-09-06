@@ -28,7 +28,7 @@ function Get-DiskInfo {
                    Size=$disk.size / 1GB -as [int]
                    Free = $disk.freespace / 1GB -as [int]
                    Danger=$danger}
-        $obj = New-Object –TypeName PSObject –Property $props
+        $obj = New-Object -TypeName PSObject -Property $props
         $obj
       }
     }
