@@ -1,4 +1,4 @@
-﻿Workflow DemoNotUsing {
+Workflow DemoNotUsing {
 
 Param([string]$log="System",[int]$newest=10)
 
