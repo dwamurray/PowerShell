@@ -1,4 +1,4 @@
-﻿function prompt {
+function prompt {
 if ([System.IntPtr]::Size -eq 8) {$size = '64 bit'}    #1
 else {$size = '32 bit'}
 
