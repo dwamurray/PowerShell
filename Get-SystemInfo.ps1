@@ -1,4 +1,4 @@
-﻿function Get-SystemInfo {
+function Get-SystemInfo {
   [CmdletBinding()]
   param(
     [Parameter(Mandatory=$True,
