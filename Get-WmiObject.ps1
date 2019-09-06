@@ -1,4 +1,4 @@
-﻿Get-WmiObject –class Win32_OperatingSystem –comp localhost |
+Get-WmiObject –class Win32_OperatingSystem –comp localhost |
 Select __SERVER,Version,OSArchitecture
 
 Get-WmiObject –class Win32_ComputerSystem –comp localhost |
