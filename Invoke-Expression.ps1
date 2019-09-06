@@ -1,5 +1,3 @@
-﻿#requires -version 3.0 
-
 [cmdletbinding()]
 
 Param (
