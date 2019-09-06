@@ -1,4 +1,0 @@
-﻿$test = Read-Host "Enter a number"
-Write-host $tset
-$a=[system.math]::PI*($tset*$test)
-Write-Host "The area is $tset"
