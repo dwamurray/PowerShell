@@ -14,7 +14,7 @@ Function New-ChecksumFile {
 	[IO.File]::WriteAllText("$($Path).checksum",$hashStr)
 }
 
-.\InstallPullServerConfig –DSCServiceSetup                        
+.\InstallPullServerConfig â€“DSCServiceSetup                        
 .\SampleConfig.ps1                                               
 
 Copy-Item -Path .\Dsc\PullDemo\MEMBER2.mof `                          
