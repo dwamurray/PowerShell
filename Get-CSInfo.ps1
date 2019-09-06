@@ -1,4 +1,4 @@
-﻿<#
+<#
 .DESCRIPTION
 Retrieves inventory information and produces HTML
 .EXAMPLE
