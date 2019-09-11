@@ -26,3 +26,7 @@ Write-Output $obj
 }
 
 Get-ServerInfo 2008member | Format-Table -auto
+
+# Can also output using:
+# Get-ServerInfo -comp 2008member | Export-CSV info.csv
+# Get-ServerInfo -comp 2008member | ConvertTo-HTML | Out-File info.html
