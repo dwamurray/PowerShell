@@ -49,3 +49,6 @@ GetServerInfoWork -computername $_
 }
 END {}
 }
+
+Get-content names.txt | get-serverinfo
+#Get-serverinfo -computername (get-content names.txt)
