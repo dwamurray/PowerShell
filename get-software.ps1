@@ -1,7 +1,8 @@
 $software = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | 
 select -expand pschildname 
 
-foreach ($entry in $software) {
+foreach ($entry in $software) 
+{
 get-itemproperty -path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\$entry" | 
 select pschildname,displayname,publisher
 }
