@@ -9,6 +9,7 @@ Remove-Item -Force
 # Delete any empty directories left behind after deleting the old files.
 Get-ChildItem -Path $path -Recurse -Force | 
 Where-Object { $_.PSIsContainer -and (Get-ChildItem -Path $_.FullName -Recurse -Force | 
-Where-Object { !$_.PSIsContainer }) -eq $null } | Remove-Item -Force -Recurse
+Where-Object { !$_.PSIsContainer }) -eq $null } | 
+Remove-Item -Force -Recurse
 
 # Note you could change this so that it removes files not modified in last 15 days etc - investigate
